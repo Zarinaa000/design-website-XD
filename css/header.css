@@ -1,6 +1,6 @@
 header {
-    background: linear-gradient(45deg,orange 30%,violet);
-    /* background-image:url('../img/nature.jpg'); */
+    background: linear-gradient(45deg,#5d9467 30%,#726cd874);
+    /* background-image:url ('../img/nature.jpg'); */
     height:30rem;
     background-repeat: no-repat;
     background-size: cover;
