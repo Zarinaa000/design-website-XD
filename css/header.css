@@ -1,8 +1,9 @@
 header {
-    background: linear-gradient(45deg,#4e5981 30%,#726cd874);
-    background-image: url('../);
-    height:30rem;
-    background-repeat: no-repat;
+    background: linear-gradient(45deg,#44538c 30%,#7671cf74); 
+    /* height:30rem; */
+    /*background-image: url('../img/твоя_картинка.jpg');*/
+    height: 92.4vh; /*здесь регулируется высота*/
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -25,6 +26,11 @@ header {
     height: 100%;
     min-width: 100%;
     background: rgba(0,0,0,0,50)
+}
+
+.z-button {
+    display: flex;
+    align-items: center;
 }
 
 /* мобильная версия */
