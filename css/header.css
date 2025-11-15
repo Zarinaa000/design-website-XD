@@ -1,12 +1,12 @@
 header {
-    background: linear-gradient(45deg,#44538c 30%,#7671cf74); 
+    background: linear-gradient(45deg,hsl(228, 31%, 40%) 30%,#727581); 
     /* height:30rem; */
     /*background-image: url('../img/твоя_картинка.jpg');*/
     height: 45vh; /*здесь регулируется высота*/
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-}
+    background-position: center;  
+}    
 
 .es-header-title {
     display: flex;
