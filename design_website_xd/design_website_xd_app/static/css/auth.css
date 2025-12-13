@@ -1,0 +1,14 @@
+.auth {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    width: 20rem;
+}
+
+#password-label {
+    margin-top: 1rem;
+}
+
+#auth-button {
+    margin-top: 1rem;
+}
