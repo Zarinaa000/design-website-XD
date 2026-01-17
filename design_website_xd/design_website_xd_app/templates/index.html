@@ -52,9 +52,17 @@
                     <li><a class="dropdown-item" href="#">арт-дизайн</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+            {% if username %}
+                <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ username }}</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" id="logout-link" href={% url 'logout' %}>Выйти</a></li>
+                </ul>
+            {% else %}
             <li class="nav-item">
-                <a href={% url 'auth' %} class="nav-link" href="#" tabindex="-1" aria-disabled="true">Вход / Регистрация</a>
+                <a href={% url 'auth' %} class="nav-link">Вход / Регистрация</a>
             </li>
+            {% endif %}
             <li class="nav-item me-2">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Есть вопросы?</button>
             </li>

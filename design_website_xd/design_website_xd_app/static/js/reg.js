@@ -1,8 +1,14 @@
-$('#auth-button').click(
+$('#reg-button').click(
     function() {
+
+        //Подбираем данные с HTML
         let email = $('#email').val();
         let password = $('#password').val();
-        let authButton = $('#auth-button');
+        let birthdate = $('#birthdate').val();
+        let firstName = $('#first-name').val();
+        let lastName = $('#last-name').val();
+        let regButton = $('#reg-button');
+
         const CSRF = $('[name=csrfmiddlewaretoken]').val();
         
         if(!email) {
@@ -16,34 +22,28 @@ $('#auth-button').click(
         let userData = {
             'email' : email,
             'password' : password,
+            'birthdate' : birthdate,
+            'firstName' : firstName,
+            'lastName' : lastName,
             'csrfmiddlewaretoken': CSRF
         }
 
         $.ajax({
-            url: '/auth/',
+            url: '/reg/',
             type: 'POST',
             dataType: 'json',
             data: userData,
 
             success: 
                 function(data) {
-                    authButton.text('Успешно');
-                    authButton.prop('disabled', true);
-                    authButton.css({
+                    regButton.text('Успешно');
+                    regButton.prop('disabled', true);
+                    regButton.css({
                         'background-color': '#4CAF50',
                         'color': '#fff',
                     });
                     window.location.href = '/'; //Переход на главную сайта
                 },
-            error:
-                function(data) {
-                    authButton.text('Нет такого пользователя');
-                    authButton.css({
-                        'background-color': '#af4c4f',
-                        'color': '#fff',
-                    });
-                    window.location.href = '/';
-                }
         });
     }
 );
