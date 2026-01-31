@@ -1,0 +1,7 @@
+{% for service in service_list %}
+<ul>
+    <li>
+        <a href="/service/{{ service.id }}/">{{ service.service_title }}</a>
+    </li>
+</ul>            
+{% endfor %}

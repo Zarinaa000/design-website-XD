@@ -48,12 +48,21 @@ def reg(request):
 
     return render(request, 'reg.html')
 
-    
 def logout_view(request):
     logout(request)
     return redirect('index')
 
+def catalog_view(request):
+    catalog = Service.objects.all()
+    context = {
+        'service_list': catalog,
+    }
+    return render(request,'catalog.html', context)
+
 def service_template(request, id):
    service = Service.objects.get(id = id)
-   context = { 'title' : service.service_title } 
+   context = {
+       'title' : service.service_title,
+       'image' : service.service_image,
+   }
    return render(request, 'service-template.html', context)

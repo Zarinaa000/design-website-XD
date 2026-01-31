@@ -17,21 +17,3 @@ class Service(models.Model):
 
     def __str__(self):
         return f'{self.service_title}'
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Create your models here.
