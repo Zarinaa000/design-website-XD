@@ -1,0 +1,22 @@
+#service {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+#service-img {
+    width: 450px;
+    height: 160px;
+}
+
+#service-title {
+    font-size: 2.3rem;
+}
+
+#service-price {
+    font-size: 1.5rem;
+    color: gray;
+}
+
+#service-description {
+    color: gray;
+}
