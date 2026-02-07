@@ -9,11 +9,11 @@ class Service(models.Model):
     #DateTimeField()
     #FilePathField() - путь до файла
 
-    service_title = models.CharField(max_length= 100) # название продукта
-    service_price = models.FloatField() # цена продукта
-    service_Description = models.TextField() # описание продукта
-    service_image = models.ImageField() # картинка продукта
-    service_quantity = models.IntegerField() # кол-во продукта
+    title = models.CharField(max_length= 100) # название продукта
+    price = models.FloatField() # цена продукта
+    description = models.TextField() # описание продукта
+    image = models.ImageField() # картинка продукта
+    quantity = models.IntegerField() # кол-во продукта
 
     def __str__(self):
-        return f'{self.service_title}'
+        return f'{self.id}. {self.title}'

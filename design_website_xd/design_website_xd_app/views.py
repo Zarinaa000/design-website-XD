@@ -62,7 +62,6 @@ def catalog_view(request):
 def service_template(request, id):
    service = Service.objects.get(id = id)
    context = {
-       'title' : service.service_title,
-       'image' : service.service_image,
-   }
+       'service' : service
+    }
    return render(request, 'service-template.html', context)
