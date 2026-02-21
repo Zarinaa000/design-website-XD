@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from transliterate import translit
 
 # Service - услуга
 class Service(models.Model):
@@ -9,10 +10,16 @@ class Service(models.Model):
     #DateTimeField()
     #FilePathField() - путь до файла
 
+    def user_directory_path(instance, filename):
+        title = str(translit(value = instance.title, language_code = 'ru', reversed = True))
+        id = str(instance.id)
+        return f'services/{id}_{title}/{filename}'
+
     title = models.CharField(max_length= 100) # название продукта
     price = models.FloatField() # цена продукта
     description = models.TextField() # описание продукта
-    image = models.ImageField() # картинка продукта
+    image = models.ImageField(default='none', upload_to=user_directory_path) # картинка продукта
+    image2 = models.ImageField(default='none', upload_to=user_directory_path) # картинка продукта
     quantity = models.IntegerField() # кол-во продукта
 
     def __str__(self):

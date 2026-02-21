@@ -20,3 +20,11 @@
 #service-description {
     color: gray;
 }
+
+.service-card:hover {
+    cursor: pointer;
+}
+
+.good-title:hover {
+    color: #919092;
+}
