@@ -11,6 +11,7 @@ urlpatterns = [
     path('reg/', views.reg, name='reg'),
     path('logout/', views.logout_view, name='logout'),
     path('catalog/', views.catalog_view, name='catalog'),
-    path('service/<int:id>/', views.service_template, name='service')
+    path('service/<int:id>/', views.service_template, name='service'),
+    path('account/', views.account, name='account'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

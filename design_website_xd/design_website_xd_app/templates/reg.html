@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}desing-website-XD{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <link rel="stylesheet" href={% static 'css/header.css' %}>
+    <link rel="stylesheet" href={% static 'css/interesting.css' %}>
+{% endblock %}
+
+{% block content %}
+    <!-- Bootstrap 5.3 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+        <link rel="stylesheet" href={% static 'css/reg.css' %}></link>
+    </head>
+    <body>
+
+        {% csrf_token %}
+        <main class="reg">
+            <!-- Имя -->
+            <label for="first-name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="first-name" placeholder="Введите имя">
+
+            <!-- Фамилия -->
+            <label for="last-name" class="form-label reg-label">Фамилия</label>
+            <input type="text" class="form-control" id="last-name" placeholder="Введите фамилию">
+
+            <!-- Дата рождения -->
+            <label for="birthdate" class="form-label reg-label">Дата рождения</label>
+            <input type="date" class="form-control" id="birthdate" placeholder="Введите фамилию">
+
+            <!-- Почта -->
+            <label for="email" class="form-label reg-label">Электронная почта</label>
+            <input type="email" class="form-control" id="email" placeholder="Введите почту">
+
+            <!-- Пароль -->
+            <label for="password" class="form-label reg-label">Пароль</label>
+            <input type="password" class="form-control" id="password" placeholder="Введите пароль">
+
+            <!-- Кнопка регистрации -->
+            <input type="button" class="btn btn-dark" id="reg-button" value="Зарегистрироваться">
+        </main>
+{% endblock %}

@@ -65,3 +65,16 @@ def service_template(request, id):
        'service' : service
     }
    return render(request, 'service-template.html', context)
+
+def account(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        first_name = request.POST.get('firstName')
+        last_name = request.POST.get('lastName')
+        birthday = request.POST.get('birthday')
+        username = email
+
+        return JsonResponse({'status': 'success'})
+
+    return render(request, 'account.html')
