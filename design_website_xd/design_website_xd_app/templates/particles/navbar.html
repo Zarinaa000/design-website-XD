@@ -1,7 +1,7 @@
 <!-- Панель навигации -->
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
 <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href={% url 'index' %}>
         <!-- <img src="./img/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="not found" loading="lazy"> -->
         <i class="fa-brands fa-padlet" style="color: hsl(228, 31%, 40%);"></i>
         layout-art
@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarWithDropdown">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+            <a class="nav-link active" aria-current="page" href={% url 'index' %}>Главная</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">заказ</a>
