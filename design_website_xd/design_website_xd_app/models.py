@@ -23,4 +23,4 @@ class Service(models.Model):
     quantity = models.IntegerField() # кол-во продукта
 
     def __str__(self):
-        return f'{self.id}. {self.title}'
+        return f'{self.id}. {self.title}' 

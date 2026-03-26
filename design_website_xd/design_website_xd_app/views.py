@@ -53,7 +53,7 @@ def logout_view(request):
     return redirect('index')
 
 def catalog_view(request):
-    catalog = Service.objects.all()
+    service = service.objects.filter(service_type = '')
     context = {
         'service_list': catalog,
     }
