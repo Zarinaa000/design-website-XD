@@ -12,13 +12,15 @@
 {% block content %}
      <!-- Заголовок сайта -->
     <header>
-        <div class="container text-black roboto-italic overlay">
-            <h1 class="es-header-title">Работаем ежедневно с 9-21</h1>
-            <h2 class="es-header-title">Laout-art</h2>
-            <h3 class="es-header-title">ул. Ленина 101</h3>
-            <p class="es-text-header text-center">Примимся за любой заказ</p>
-            <div class="row z-button">
-                <div class="col-5"></div>
+        <div class="container text-black roboto-italic">
+            <div class="overlay">
+                <h1 class="es-header-title">Работаем ежедневно с 9-21</h1>
+                <h2 class="es-header-title">Laout-art</h2>
+                <h3 class="es-header-title">ул. Ленина 101</h3>
+                <p class="es-text-header text-center">Примимся за любой заказ</p>
+                <div class="row z-button">
+                    <div class="col-5"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,66 +57,77 @@
    <!-- Блок интересное -->
    <section class="es-interesting">
         <div class="container">
-            <div class="row">
+            <div class="row interesting-main-title">
                 <div class="col d-flex justify-content-center">
                     <h1 class="es-interesting-title">Преимущество</h1>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-4">
+            <div class="row d-flex justify-content-between interesting-group">
+                <div class="col-3 interesting-unit">
                     <div class="d-flex">
                         <div class="es-interesting-icon">
-                            <i class="fa-solid fa-seedling"></i>
+                            <i class="fa-solid fa-seedling interesting-icon"></i>
                         </div>
                         <div class="es-interesting-text">
-                            <h3>Отзывы</h3>
-                            <p>самые лучшие отзывы из всех компаний</p>
+                            <h3 class="interesting-unit-title">Отзывы</h3>
+                            <p class="interesting-unit-text">самые лучшие отзывы из всех компаний</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3 interesting-unit">
                     <div class="d-flex">
                         <div class="es-interesting-icon">
-                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-briefcase interesting-icon"></i>
                         </div>
                         <div class="es-interesting-text">
-                            <h3>Портфолио</h3>
-                            <p>самые выдающиеся наши работы</p>
+                            <h3 class="interesting-unit-title">Портфолио</h3>
+                            <p class="interesting-unit-text">самые выдающиеся наши работы</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3 interesting-unit">
                     <div class="d-flex">
                         <div class="es-interesting-icon">
-                            <i class="fa-solid fa-compass-drafting"></i>
+                            <i class="fa-solid fa-compass-drafting interesting-icon"></i>
                         </div>
                         <div class="es-interesting-text">
-                            <h3>выбрать дизайн</h3>
-                            <p>всегда подберем нужное</p>
+                            <h3 class="interesting-unit-title">выбрать дизайн</h3>
+                            <p class="interesting-unit-text">всегда подберем нужное</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-4">
+            <div class="row d-flex justify-content-between interesting-group" id="interesting-group-last">
+                <div class="col-3 interesting-unit">
                     <div class="d-flex">
                         <div class="es-interesting-icon">
-                            <i class="fa-regular fa-handshake"></i>
+                            <i class="fa-regular fa-handshake interesting-icon"></i>
                         </div>
                         <div class="es-interesting-text">
-                            <h3>Сотрудничество</h3>
-                            <p>всегда рады воссоединить наши работы</p>
+                            <h3 class="interesting-unit-title">Сотрудничество</h3>
+                            <p class="interesting-unit-text">всегда рады воссоединить наши работы</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3 interesting-unit">
                     <div class="d-flex">
                         <div class="es-interesting-icon">
-                            <i class="fa-solid fa-align-justify"></i>
+                            <i class="fa-solid fa-align-justify interesting-icon"></i>
                         </div>
                         <div class="es-interesting-text">
-                            <h3>Модельный ряд</h3>
-                            <p>подбирайте свое</p>
+                            <h3 class="interesting-unit-title">Модельный ряд</h3>
+                            <p class="interesting-unit-text">подбирайте свое</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 interesting-unit">
+                    <div class="d-flex">
+                        <div class="es-interesting-icon">
+                            <i class="fa-solid fa-align-justify interesting-icon"></i>
+                        </div>
+                        <div class="es-interesting-text">
+                            <h3 class="interesting-unit-title">Модельный ряд</h3>
+                            <p class="interesting-unit-text">подбирайте свое</p>
                         </div>
                     </div>
                 </div>
@@ -126,16 +139,18 @@
 	<!-- Блок обратной связи -->
 	<section class="feedback">
 		<div class="container">
-			<div class="col-sm-12 d-flex justify-content-center">
-				<div class="title">
-					<h2 class="title-main">Форма обратной связи</h2>
-					<p class="title-text">Оставьте свой адрес почты и мы с вами свяжемся</p>
-					<div class="feedback-form">
-						<input type="email" class="form-control" name="email" id="email" placeholder="Введите адрес почты">
-						<button id="submit-button" class="form-control btn btn-dark">Отправить</button>
-					</div>
-				</div>
-			</div>
+            <div class="overlay" id="feedback-overlay">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <div class="title">
+                        <h2 class="title-main">Форма обратной связи</h2>
+                        <p class="title-text">Оставьте свой адрес почты и мы с вами свяжемся</p>
+                        <div class="feedback-form">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Введите адрес почты">
+                            <button id="submit-button" class="form-control btn btn-dark">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</section>
 {% endblock %}              
