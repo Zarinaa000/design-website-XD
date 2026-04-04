@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarWithDropdown">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href={% url 'index' %}>Главная</a>
+            <a class="nav-link active" aria-current="page" href={% url 'index' all %}>Главная</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">заказ</a>
@@ -25,10 +25,10 @@
                 категории
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href={% url 'catalog' %}>дизайн имидж человека</a></li>
-                <li><a class="dropdown-item" href="#">графический</a></li>
-                <li><a class="dropdown-item" href="#">архитектурный</a></li>
-                <li><a class="dropdown-item" href="#">арт-дизайн</a></li>
+                <li><a class="dropdown-item" href={% url 'catalog' 'human image design' %}>дизайн имидж человека</a></li>
+                <li><a class="dropdown-item" href={% url 'catalog' 'graphic' %}"#">графический</a></li>
+                <li><a class="dropdown-item" href={% url 'catalog' 'architectural' %}"#">архитектурный</a></li>
+                <li><a class="dropdown-item" href={% url 'catalog' 'art-design' %}"#">арт-дизайн</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
