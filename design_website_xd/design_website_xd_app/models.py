@@ -10,11 +10,11 @@ class Service(models.Model):
     #DateTimeField()
     #FilePathField() - путь до файла
 
-    service_types = (
-        ('Human image design', 'Дизайн имидж человека'), 
-        ('Graphic', 'Графический'), 
-        ('Architectural', 'Архитектурный'), 
-        ('Art-design', 'Арт-дизайн')
+    catalog_types = (
+        ('human_image_design', 'дизайн имидж человека'), 
+        ('graphic', 'графический'), 
+        ('architectural', 'архитектурный'), 
+        ('art_design', 'арт-дизайн'),
     )
 
     def user_directory_path(instance, filename):
@@ -28,7 +28,7 @@ class Service(models.Model):
     image = models.ImageField(default='none', upload_to=user_directory_path) # картинка продукта
     image2 = models.ImageField(default='none', upload_to=user_directory_path) # картинка продукта
     quantity = models.IntegerField() # кол-во продукта
-    service_type = models.CharField(max_length = 100, choices = service_types)
+    catalog_type = models.CharField(max_length = 100, choices = catalog_types)
 
     def __str__(self):
         return f'{self.id}. {self.title}' 

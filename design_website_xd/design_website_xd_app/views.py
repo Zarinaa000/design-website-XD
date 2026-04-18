@@ -54,14 +54,14 @@ def logout_view(request):
 
 def catalog_view(request, catalog_type):
     catalog_type_name = ''
-
+    print(catalog_type)
     if catalog_type == 'all':
         service = Service.objects.all()
         catalog_type_name = "Все"
     else:
-        service = Service.objects.filter(catalog_type = 'catalog_type')
+        service = Service.objects.filter(catalog_type = catalog_type)
 
-        catalog_types = service.catalog_types
+        catalog_types = Service.catalog_types
         
         for ft in catalog_types:
             if ft[0] == catalog_type:
