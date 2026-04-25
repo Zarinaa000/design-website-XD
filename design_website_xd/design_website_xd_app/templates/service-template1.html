@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Авторизация - desing-website-XD{% endblock %}
+{% block title %}desing-website-XD{% endblock %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -36,16 +36,16 @@
         <div class="collapse navbar-collapse" id="navbarWithDropdown">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                <a class="nav-link active" current="page" href="#">Главная</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">заказ</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expanded="false">
                     категории
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href={% url 'catalog' %}>дизайн имидж человека</a></li>
                     <li><a class="dropdown-item" href="#">графический</a></li>
                     <li><a class="dropdown-item" href="#">архитектурный</a></li>
@@ -72,35 +72,23 @@
     </nav>
 
     <main class="container" id="service">
-            <main class="container" id="service">
         <div class="row justify-content-end">
-            {% for service in service_list %}
-            <div class="col-4">
-                <div class="card" style="width: 18rem;" onclick="window.location = '/service/{{ service.id }}'">
-                    <img src={{ service.image.url }} class="card-img-top service-img" alt={{ service.title }} id="img-{{ service.id }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ service.title }}</h5>
-                        <p class="card-text">{{ service.price }} ₽</p>
-                        <a href="/service/{{ service.id }}" class="btn btn-success">Купить</a>
-                    </div>
-                </div>
+            <div class="col-5">
+                <img src={{ service.image.url }} alt={{ service.title }} id="service-img">
             </div>
-            {% endfor %}
+            <div class="col-6">
+                <p id="service-title">{{ service.title }}</p>
+                <p id="service-price">{{ service.price }} $</p>
+                <p id="service-description">{{ service.description }}</p>
+                <p id="service-quantity">Осталось {{ service.quantity }} шт. </p>
+            </div>    
         </div>
     </main>
-
-
-        {% for service in service_list %}
-        <ul>
-            <li>
-                <a href="/service/{{ service.id }}/">{{ service.service_title }}</a>
-            </li>
-        </ul>            
-        {% endfor %}
-    </main>
-              
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap 5.3 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src={% static 'img-change.js' %}></script>
 </body>
 </html>
 

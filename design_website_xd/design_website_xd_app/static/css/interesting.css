@@ -1,3 +1,55 @@
+.es-interesting {
+    background-color: peachpuff;
+}
+
+.interesting-main-title {
+    margin-top: 1.4rem;
+    padding-top: 2rem;
+}
+
 .es-interesting-title {
     margin-bottom: 2rem;
+}
+
+.interesting-group {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#interesting-group-last {
+    margin-bottom: 2rem; 
+}
+
+.interesting-icon {
+    padding-top: 0.3rem;
+    padding-right: 0.6rem;
+    font-size: 1.75rem;
+}
+
+.es-interesting-icon {
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .interesting-unit {
+        width: 100%;
+        box-sizing: content-box;
+    }
+
+    .interesting-unit-title {
+        font-size: 1.75rem;
+    }
+
+    .interesting-unit-text {
+        font-size: 1.3rem;
+    }
+
+    .interesting-group {
+        width: 100%;
+        box-sizing: content-box;
+    }
+
+    .interesting-unit-title, .interesting-unit-text {
+        word-break: break-word;
+    }
 }

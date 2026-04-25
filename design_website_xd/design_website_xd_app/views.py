@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import Service
+from django.core.mail import send_mail
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.conf import settings
 
 def index(request):
     try:
@@ -52,16 +56,68 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-def catalog_view(request):
-    catalog = Service.objects.all()
+def catalog_view(request, catalog_type):
+    catalog_type_name = ''
+    print(catalog_type)
+    if catalog_type == 'all':
+        service = Service.objects.all()
+        catalog_type_name = "Все"
+    else:
+        service = Service.objects.filter(catalog_type = catalog_type)
+
+        catalog_types = Service.catalog_types
+        
+        for ft in catalog_types:
+            if ft[0] == catalog_type:
+                catalog_type_name = ft[1]
+                break
+
     context = {
-        'service_list': catalog,
+        'service_list' : service,
+        'catalog_type' : catalog_type_name
     }
     return render(request,'catalog.html', context)
 
 def service_template(request, id):
-   service = Service.objects.get(id = id)
+   service = Service.objects.get(id = id) # конструктор класса
    context = {
        'service' : service
     }
    return render(request, 'service-template.html', context)
+
+def account(request):
+  print(request.user.id)
+  try:
+    context = {
+        'username' : request.user.username,
+        'first_name' : request.user.first_name,
+        'last_name' : request.user.last_name,
+        'email': request.user.email,
+    }
+    return render(request, 'account.html', context)
+  except AttributeError:
+      return HttpResponse("<h1>401 Unauthorized</h1>", status=401)
+  
+def email(request):
+    if request.method == 'POST' and request.POST.get('email'):
+
+        try:
+            email = request.POST.get('email')
+            validate_email(email)
+            print('получилось взять имейл: ', email)
+        except ValidationError:
+            return JsonResponse({'status': 'erorr', 'message' : 'неправильно введен адрес почты'}, status=40)
+
+        send_mail(
+            "полезная рассылка",
+            "вы буудете получать полезную рассылку с полезных продуктах.",
+            'saline.alibaeva@yandex.ru'
+            [email],
+            fail_silently=False,
+        )          
+
+        email_digest = EmailDigest(email = email)
+        email_digest.save()
+
+        return JsonResponse({'status': 'success', 'message' : 'отправлено'})
+    return JsonResponse({'status' : 'error', 'message' : 'метод не разрешен. только POST.'}, status=405)
