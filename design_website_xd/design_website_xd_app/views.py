@@ -4,6 +4,10 @@ from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponse
 from .models import Service
+from django.core.mail import send_mail
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.conf import settings
 
 def index(request):
     try:
@@ -93,3 +97,27 @@ def account(request):
     return render(request, 'account.html', context)
   except AttributeError:
       return HttpResponse("<h1>401 Unauthorized</h1>", status=401)
+  
+def email(request):
+    if request.method == 'POST' and request.POST.get('email'):
+
+        try:
+            email = request.POST.get('email')
+            validate_email(email)
+            print('получилось взять имейл: ', email)
+        except ValidationError:
+            return JsonResponse({'status': 'erorr', 'message' : 'неправильно введен адрес почты'}, status=40)
+
+        send_mail(
+            "полезная рассылка",
+            "вы буудете получать полезную рассылку с полезных продуктах.",
+            'saline.alibaeva@yandex.ru'
+            [email],
+            fail_silently=False,
+        )          
+
+        email_digest = EmailDigest(email = email)
+        email_digest.save()
+
+        return JsonResponse({'status': 'success', 'message' : 'отправлено'})
+    return JsonResponse({'status' : 'error', 'message' : 'метод не разрешен. только POST.'}, status=405)

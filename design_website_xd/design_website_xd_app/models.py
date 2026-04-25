@@ -32,3 +32,10 @@ class Service(models.Model):
 
     def __str__(self):
         return f'{self.id}. {self.title}' 
+    
+class EmailDigest(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return f'{self.email}'    
+
